@@ -193,7 +193,7 @@
         }
         .archive-block h3 {
             font-size: 1.1rem;
-            margin-top: 15px; /* サムネイルの下に少し余白を作る */
+            margin-bottom: 12px; /* タイトル下（サムネイルとの間）に余白を作る */
             font-weight: 600;
             color: #9ca3af;
         }
@@ -308,7 +308,7 @@
             text-decoration: underline;
         }
 
-        /* レスペースブ */
+        /* レスポンシブ */
         @media (max-width: 600px) {
             header.nav-bar {
                 padding: 10px 0;
@@ -338,134 +338,4 @@
         <nav class="nav-container">
             <a href="#home">ホーム</a>
             <a href="#videos">動画一覧</a>
-            <a href="#archive">アーカイブ</a>
-            <a href="#schedule">配信予定</a>
-            <a href="#friends">仲間たち</a>
-            <a href="#sns">SNS</a>
-        </nav>
-    </header>
-
-    <section id="home" class="fade-in-section">
-        <div class="card">
-            <img src="はっきー.jpg" alt="はっきー" class="main-visual">
-            <div class="main-title">Welcome to はっきー's Grand Time.</div>
-        </div>
-    </section>
-
-    <section id="videos" class="fade-in-section">
-        <div class="card">
-            <h2>動画一覧</h2>
-            <div class="video-container">
-                
-                <div class="video-block">
-                    <h3>■ 最新の横動画</h3>
-                    <a href="https://youtu.be/6gxbp6zUjuI?si=VTSDGjmPKh1ASfcL" target="_blank" rel="noopener">
-                        <div class="thumbnail-wrapper">
-                            <img src="https://img.youtube.com/vi/6gxbp6zUjuI/maxresdefault.jpg" alt="最新の横動画 サムネイル">
-                        </div>
-                    </a>
-                </div>
-
-                <div class="video-block">
-                    <h3>■ はっきーの偏差値大公開！</h3>
-                    <a href="https://youtu.be/jMhIZ4LpYhQ?si=em1YEVY1jLbO80cJ" target="_blank" rel="noopener">
-                        <div class="thumbnail-wrapper">
-                            <img src="https://img.youtube.com/vi/jMhIZ4LpYhQ/maxresdefault.jpg" alt="はっきーの偏差値大公開！ サムネイル">
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="archive" class="fade-in-section">
-        <div class="card">
-            <h2>おすすめの配信アーカイブ</h2>
-            <div class="archive-block">
-                <a href="https://www.youtube.com/live/XPQwx5z3Dhw?si=azJRlv1udxl3wCo1" target="_blank" rel="noopener">
-                    <div class="thumbnail-wrapper">
-                        <img src="https://img.youtube.com/vi/XPQwx5z3Dhw/maxresdefault.jpg" alt="おすすめの配信アーカイブ サムネイル">
-                    </div>
-                </a>
-                <h3>■ はっきーとヒカキン、奇跡のエンカウント</h3>
-            </div>
-        </div>
-    </section>
-
-    <section id="schedule" class="fade-in-section">
-        <div class="card">
-            <h2>配信予定</h2>
-            <div class="quote-schedule">
-                毎週水曜日に定期配信があります！要チェック！
-            </div>
-        </div>
-    </section>
-
-    <section id="friends" class="fade-in-section">
-        <div class="card">
-            <h2>はっきーの愉快な仲間たち</h2>
-            <img src="reason.jpg" alt="りーずん" class="friend-img">
-            <div class="friend-name">りーずん</div>
-            <a href="https://www.youtube.com/@reasonproject777" target="_blank" rel="noopener" class="friend-link">
-                https://www.youtube.com/@reasonproject777
-            </a>
-        </div>
-    </section>
-
-    <section id="sns" class="fade-in-section">
-        <div class="card">
-            <h2>はっきーの各所SNSリンク</h2>
-            <ul class="sns-list">
-                <li class="sns-item">
-                    <div class="sns-label">X(旧Twitter)</div>
-                    <a href="https://x.com/save_that_sxxt" target="_blank" rel="noopener" class="sns-url">
-                        https://x.com/save_that_sxxt
-                    </a>
-                </li>
-                <li class="sns-item">
-                    <div class="sns-label">Youtube</div>
-                    <a href="https://www.youtube.com/@はっきースプラVtuber" target="_blank" rel="noopener" class="sns-url">
-                        https://www.youtube.com/@はっきースプラVtuber
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <button id="back-to-top" title="ページ上部へ戻る">↑</button>
-
-    <footer>
-        <p>このサイトははっきーのリスナーが作った非公式ファンサイトです。このサイトに関係した迷惑行為はやらないでください。</p>
-        <p>お問い合わせ先 → <a href="https://x.com/akakiookami125" target="_blank" rel="noopener">https://x.com/akakiookami125</a></p>
-    </footer>
-
-    <script>
-        // ふわっと表示
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
-
-        sections.forEach(section => observer.observe(section));
-
-        // 戻るボタンの表示制御
-        const bttBtn = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                bttBtn.classList.add('is-visible');
-            } else {
-                bttBtn.classList.remove('is-visible');
-            }
-        });
-        bttBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-</body>
-</html>
+            <a href="#archive
