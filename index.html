@@ -71,7 +71,7 @@
             padding: 18px 20px;
         }
         .nav-container a {
-            margin: 0 15px;
+            margin: 0 12px;
             font-weight: 600;
             font-size: 0.95rem;
             letter-spacing: 0.1em;
@@ -185,6 +185,19 @@
             object-fit: cover;
         }
 
+        /* おすすめの配信アーカイブ用：中央寄せ配置用スタイル */
+        .archive-block {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .archive-block h3 {
+            font-size: 1.1rem;
+            margin-top: 15px; /* サムネイルの下に少し余白を作る */
+            font-weight: 600;
+            color: #9ca3af;
+        }
+
         /* 配信予定セクション */
         .quote-schedule {
             margin-top: 20px;
@@ -295,13 +308,13 @@
             text-decoration: underline;
         }
 
-        /* レスポンシブ */
+        /* レスペースブ */
         @media (max-width: 600px) {
             header.nav-bar {
                 padding: 10px 0;
             }
             .nav-container a {
-                margin: 0 8px;
+                margin: 0 6px;
                 font-size: 0.85rem;
             }
             .card {
@@ -325,6 +338,7 @@
         <nav class="nav-container">
             <a href="#home">ホーム</a>
             <a href="#videos">動画一覧</a>
+            <a href="#archive">アーカイブ</a>
             <a href="#schedule">配信予定</a>
             <a href="#friends">仲間たち</a>
             <a href="#sns">SNS</a>
@@ -361,6 +375,20 @@
                     </a>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <section id="archive" class="fade-in-section">
+        <div class="card">
+            <h2>おすすめの配信アーカイブ</h2>
+            <div class="archive-block">
+                <a href="https://www.youtube.com/live/XPQwx5z3Dhw?si=azJRlv1udxl3wCo1" target="_blank" rel="noopener">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://img.youtube.com/vi/XPQwx5z3Dhw/maxresdefault.jpg" alt="おすすめの配信アーカイブ サムネイル">
+                    </div>
+                </a>
+                <h3>■ はっきーとヒカキン、奇跡のエンカウント</h3>
             </div>
         </div>
     </section>
@@ -408,7 +436,7 @@
     <button id="back-to-top" title="ページ上部へ戻る">↑</button>
 
     <footer>
-        <p>このサイトははっきーのリスナーが作った非公式ファンサイトです。このサイトに関係した迷惑行為はおやめください。</p>
+        <p>このサイトははっきーのリスナーが作った非公式ファンサイトです。このサイトに関係した迷惑行為はやらないでください。</p>
         <p>お問い合わせ先 → <a href="https://x.com/akakiookami125" target="_blank" rel="noopener">https://x.com/akakiookami125</a></p>
     </footer>
 
