@@ -1,412 +1,443 @@
-
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>【非公式】はっきー's Grand Time ファンサイト</title>
+    <meta name="description" content="はっきーの非公式ファンサイトです。最新動画や配信予定、SNSリンクなどをまとめています。">
+    <meta name="keywords" content="はっきー, Vtuber, スプラトゥーン, ファンサイト, 非公式">
+    <meta name="robots" content="index, follow">
 
-    <title>はっきー Unofficial Fan Site</title>
-
-    <meta name="description" content="はっきーの非公式ファンサイト">
-    <meta name="keywords" content="はっきー,VTuber,スプラトゥーン,ファンサイト">
-    <meta name="author" content="はっきーリスナー">
-
-    <!-- OGP -->
-    <meta property="og:title" content="はっきー Unofficial Fan Site">
-    <meta property="og:description" content="Welcome to はっきー's Grand Time.">
+    <meta property="og:title" content="【非公式】はっきー's Grand Time ファンサイト">
+    <meta property="og:description" content="はっきーの最新情報をお届けする非公式ファンサイトです。">
+    <meta property="og:image" content="はっきー.jpg">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="ogp.png">
-
-    <!-- Twitter -->
+    <meta property="og:site_name" content="はっきー 非公式ファンサイト">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- favicon -->
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* 全体設定：参考コードのシンプル＆スタイリッシュな黒調をベースに */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+        html {
+            scroll-behavior: smooth; /* 滑らかなスクロール */
+            background: #0b0c10; /* 深みのある黒 */
+            color: #f9fafb;
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+        body {
+            min-height: 100vh;
+            line-height: 1.8;
+            overflow-x: hidden;
+            padding-top: 70px; /* ナビゲーションバーの高さ分 */
+        }
 
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.3s, color 0.3s;
+        }
+        a:hover {
+            opacity: 0.7;
+            color: #a5b4fc;
+        }
+
+        /* 固定ナビゲーションバー */
+        header.nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 18px 20px;
+        }
+        .nav-container a {
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* ふわっと表示（アニメーション用初期状態） */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            visibility: hidden;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+
+        /* セクション共通スタイル */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* 参考コードベースの美しい半透明カード */
+        .card {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-left: 4px solid #6366f1; /* スタイリッシュなアクセント線 */
+            padding-left: 16px;
+            text-align: left;
+            letter-spacing: 0.1em;
+        }
+
+        /* ホームセクション */
+        .main-visual {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0,0,0,0.7);
+            margin-bottom: 25px;
+        }
+        .main-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #eef2ff;
+            margin-top: 10px;
+        }
+
+        /* 動画一覧セクション（他より大きめの指定：マックス幅を広く） */
+        #videos {
+            max-width: 1100px;
+        }
+        #videos .card h2 {
+            font-size: 2.1rem;
+        }
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .video-block {
+            flex: 1;
+            min-width: 300px;
+            max-width: 460px;
+            text-align: left;
+        }
+        .video-block h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #9ca3af;
+        }
+        .thumbnail-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background-color: #000;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .thumbnail-wrapper:hover {
+            transform: scale(1.03);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        .thumbnail-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 配信予定セクション */
+        .quote-schedule {
+            margin-top: 20px;
+            padding: 24px;
+            border-left: 4px solid #a5b4fc;
+            background: rgba(255, 255, 255, 0.03);
+            color: #eef2ff;
+            font-size: 1.2rem;
+            font-weight: 700; /* 太文字 */
+            text-align: left;
+        }
+
+        /* 愉快な仲間たち */
+        .friend-img {
+            width: 100%;
+            max-width: 480px; /* 大きく配置 */
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        .friend-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        .friend-link {
+            font-size: 0.95rem;
+            color: #a5b4fc;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        /* SNSリンク */
+        .sns-list {
+            list-style: none;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .sns-item {
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 14px;
+        }
+        .sns-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #9ca3af;
+            margin-bottom: 6px;
+        }
+        .sns-url {
+            font-size: 1rem;
+            color: #ffffff;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        /* ページ上部へ戻るボタン */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.8);
+            backdrop-filter: blur(5px);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, background 0.3s;
+            z-index: 999;
+            font-size: 1.2rem;
+        }
+        #back-to-top:hover {
+            background: rgba(99, 102, 241, 1);
+        }
+        #back-to-top.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.85rem;
+            color: #6b7280;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.4);
+            margin-top: 80px;
+        }
+        footer p {
+            margin-bottom: 8px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        footer a {
+            color: #9ca3af;
+            text-decoration: underline;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            header.nav-bar {
+                padding: 10px 0;
+            }
+            .nav-container a {
+                margin: 0 8px;
+                font-size: 0.85rem;
+            }
+            .card {
+                padding: 24px;
+            }
+            .card h2 {
+                font-size: 1.5rem;
+            }
+            #videos .card h2 {
+                font-size: 1.7rem;
+            }
+            .main-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<!--==========================
-Loading
-===========================-->
+    <header class="nav-bar">
+        <nav class="nav-container">
+            <a href="#home">ホーム</a>
+            <a href="#videos">動画一覧</a>
+            <a href="#schedule">配信予定</a>
+            <a href="#friends">仲間たち</a>
+            <a href="#sns">SNS</a>
+        </nav>
+    </header>
 
-<div id="loader">
-
-    <div class="loader-text">
-        HAKKY
-    </div>
-
-</div>
-
-
-<!--==========================
-Back To Top
-===========================-->
-
-<button id="topButton">
-
-↑
-
-</button>
-
-
-<!--==========================
-Navigation
-===========================-->
-
-<header id="navbar">
-
-    <div class="logo">
-
-        HAKKY
-
-        <span>
-
-            Unofficial Fan Site
-
-        </span>
-
-    </div>
-
-    <nav>
-
-        <ul>
-
-            <li>
-
-                <a href="#home">
-
-                    Home
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a href="#videos">
-
-                    動画一覧
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a href="#schedule">
-
-                    配信予定
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a href="#friends">
-
-                    仲間たち
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a href="#sns">
-
-                    SNS
-
-                </a>
-
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-<!--==========================
-Hero
-===========================-->
-
-<section id="home">
-
-    <div class="hero">
-
-        <img src="images/はっきー.jpg" alt="はっきー">
-
-        <div class="hero-overlay">
-
-            <h1>
-
-                Welcome to<br>
-
-                はっきー's Grand Time.
-
-            </h1>
-
-            <p>
-
-                Unofficial Fan Website
-
-            </p>
-
+    <section id="home" class="fade-in-section">
+        <div class="card">
+            <img src="はっきー.jpg" alt="はっきー" class="main-visual">
+            <div class="main-title">Welcome to はっきー's Grand Time.</div>
         </div>
+    </section>
 
-    </div>
+    <section id="videos" class="fade-in-section">
+        <div class="card">
+            <h2>動画一覧</h2>
+            <div class="video-container">
+                
+                <div class="video-block">
+                    <h3>■ 最新の横動画</h3>
+                    <a href="https://youtu.be/6gxbp6zUjuI?si=VTSDGjmPKh1ASfcL" target="_blank" rel="noopener">
+                        <div class="thumbnail-wrapper">
+                            <img src="https://img.youtube.com/vi/6gxbp6zUjuI/maxresdefault.jpg" alt="最新の横動画 サムネイル">
+                        </div>
+                    </a>
+                </div>
 
-</section>
+                <div class="video-block">
+                    <h3>■ はっきーの偏差値大公開！</h3>
+                    <a href="https://youtu.be/jMhIZ4LpYhQ?si=em1YEVY1jLbO80cJ" target="_blank" rel="noopener">
+                        <div class="thumbnail-wrapper">
+                            <img src="https://img.youtube.com/vi/jMhIZ4LpYhQ/maxresdefault.jpg" alt="はっきーの偏差値大公開！ サムネイル">
+                        </div>
+                    </a>
+                </div>
 
+            </div>
+        </div>
+    </section>
 
-
-<!--==========================
-Main
-===========================-->
-
-<main>
-
-
-<!--==========================
-Videos
-===========================-->
-
-<section id="videos" class="fade">
-
-<h2>
-
-動画一覧
-
-</h2>
-
-
-<div class="video-grid">
-
-
-<!-- 最新動画 -->
-
-<div class="video-card">
-
-<h3>
-
-最新の横動画
-
-</h3>
-
-<a href="https://youtu.be/6gxbp6zUjuI?si=VTSDGjmPKh1ASfcL" target="_blank">
-
-<img
-src="https://img.youtube.com/vi/6gxbp6zUjuI/maxresdefault.jpg"
-alt="最新動画">
-
-</a>
-
-</div>
-
-
-<!-- 偏差値 -->
-
-<div class="video-card">
-
-<h3>
-
-はっきーの偏差値大公開！
-
-</h3>
-
-<a href="https://youtu.be/jMhIZ4LpYhQ?si=em1YEVY1jLbO80cJ"
-target="_blank">
-
-<img
-src="https://img.youtube.com/vi/jMhIZ4LpYhQ/maxresdefault.jpg"
-alt="偏差値動画">
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-  <!--==========================
-Schedule
-===========================-->
-
-<section id="schedule" class="fade">
-
-    <h2>配信予定</h2>
-
-    <div class="schedule-card">
-
-        <p>
-
-            <strong>
-
+    <section id="schedule" class="fade-in-section">
+        <div class="card">
+            <h2>配信予定</h2>
+            <div class="quote-schedule">
                 毎週水曜日に定期配信があります！要チェック！
-
-            </strong>
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!--==========================
-Friends
-===========================-->
-
-<section id="friends" class="fade">
-
-    <h2>
-
-        はっきーの愉快な仲間たち
-
-    </h2>
-
-    <div class="friend-card">
-
-        <img src="images/りーずん.jpg" alt="りーずん">
-
-        <h3>
-
-            りーずん
-
-        </h3>
-
-        <a
-            href="https://www.youtube.com/@reasonproject777"
-            target="_blank">
-
-            https://www.youtube.com/@reasonproject777
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!--==========================
-SNS
-===========================-->
-
-<section id="sns" class="fade">
-
-    <h2>
-
-        はっきーの各所SNSリンク
-
-    </h2>
-
-    <div class="sns-grid">
-
-        <div class="sns-card">
-
-            <h3>
-
-                X（旧Twitter）
-
-            </h3>
-
-            <a
-                href="https://x.com/save_that_sxxt"
-                target="_blank">
-
-                https://x.com/save_that_sxxt
-
-            </a>
-
+            </div>
         </div>
+    </section>
 
-        <div class="sns-card">
-
-            <h3>
-
-                YouTube
-
-            </h3>
-
-            <a
-                href="https://www.youtube.com/@はっきースプラVtuber"
-                target="_blank">
-
-                https://www.youtube.com/@はっきースプラVtuber
-
+    <section id="friends" class="fade-in-section">
+        <div class="card">
+            <h2>はっきーの愉快な仲間たち</h2>
+            <img src="りーずん.jpg" alt="りーずん" class="friend-img">
+            <div class="friend-name">りーずん</div>
+            <a href="https://www.youtube.com/@reasonproject777" target="_blank" rel="noopener" class="friend-link">
+                https://www.youtube.com/@reasonproject777
             </a>
-
         </div>
+    </section>
 
-    </div>
+    <section id="sns" class="fade-in-section">
+        <div class="card">
+            <h2>はっきーの各所SNSリンク</h2>
+            <ul class="sns-list">
+                <li class="sns-item">
+                    <div class="sns-label">X(旧Twitter)</div>
+                    <a href="https://x.com/save_that_sxxt" target="_blank" rel="noopener" class="sns-url">
+                        https://x.com/save_that_sxxt
+                    </a>
+                </li>
+                <li class="sns-item">
+                    <div class="sns-label">Youtube</div>
+                    <a href="https://www.youtube.com/@はっきースプラVtuber" target="_blank" rel="noopener" class="sns-url">
+                        https://www.youtube.com/@はっきースプラVtuber
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-</section>
+    <button id="back-to-top" title="ページ上部へ戻る">↑</button>
 
+    <footer>
+        <p>このサイトははっきーのリスナーが作った非公式ファンサイトです。このサイトに関係した迷惑行為はやらないでください。</p>
+        <p>お問い合わせ先 → <a href="https://x.com/akakiookami125" target="_blank" rel="noopener">https://x.com/akakiookami125</a></p>
+    </footer>
 
+    <script>
+        // ふわっと表示
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
 
-</main>
+        sections.forEach(section => observer.observe(section));
 
-
-
-<!--==========================
-Footer
-===========================-->
-
-<footer>
-
-    <div class="footer-inner">
-
-        <p>
-
-            このサイトははっきーのリスナーが作った非公式ファンサイトです。<br>
-            このサイトに関係した迷惑行為はやらないでください。
-
-        </p>
-
-        <p>
-
-            お問い合わせ先
-
-        </p>
-
-        <a
-            href="https://x.com/akakiookami125"
-            target="_blank">
-
-            https://x.com/akakiookami125
-
-        </a>
-
-    </div>
-
-</footer>
-
-
-
-<!--==========================
-JavaScript
-===========================-->
-
-<script src="script.js"></script>
-
+        // 戻るボタンの表示制御
+        const bttBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                bttBtn.classList.add('is-visible');
+            } else {
+                bttBtn.classList.remove('is-visible');
+            }
+        });
+        bttBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
-
 </html>
